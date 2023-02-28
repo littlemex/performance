@@ -28,3 +28,11 @@ readelf:
 	readelf -h /bin/sleep && readelf -S /bin/sleep
 forkandexec:
 	cc -o fork-and-exec fork-and-exec.c
+
+# chap4
+
+sched:
+	rm -f sched && cc -o sched sched.c
+# taskset はコマンドライン引数で指定したプログラムを -c で指定した論理 CPU 上でのみ動作させる
+tasksetsched:
+	taskset -c 0 ./sched 4 100 2
